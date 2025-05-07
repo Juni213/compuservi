@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="es">
+    <head> 
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CompuServic | Catálogo</title>
+        <link rel="icon" href="./images/icon.png" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <style>
+            /* Estilo para el contenedor principal con bordes */
+            .page-container {
+                max-width: 1300px; /* Ajusta el ancho máximo del contenido */
+                margin: 0 auto; /* Centra el contenedor horizontalmente */
+                border-left: 5px solid #ffffff; /* Borde izquierdo */
+                border-right: 5px solid #ffffff; /* Borde derecho */
+                background-color: #ffffff; /* Fondo blanco */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para un diseño más atractivo */
+            }
+        </style>
+    </head>
+    <body style="background-color: #f5f5f5;"></body>
+  <body>
+    <style>
+        /*navbar*/
+        .navbar-logo {
+        height: 90px; /* Tamaño del logo ajustado */
+        width: auto;
+        margin-right: 15px;
+        }
+
+        .map-container {
+  width: 100%; /* Hace que el contenedor ocupe todo el ancho disponible */
+  display: flex;
+  justify-content: center;
+}
+
+.map-container iframe {
+  width: 100%; /* Hace que el iframe del mapa ocupe todo el ancho del contenedor */
+  height: 450px; /* Altura fija; puedes ajustar este valor o hacerlo responsivo */
+  border: 0; /* Opcional: remueve el borde del iframe */
+}
+
+.float {
+    position: fixed;
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
+    background-color: #25d366; /* Color de fondo verde de WhatsApp */
+    border-radius: 50%; /* Hace que el botón sea circular */
+    width: 50px; /* Tamaño del botón */
+    height: 50px; /* Tamaño del botón */
+    display: flex; /* Alinea el contenido del botón */
+    justify-content: center; /* Centra el ícono horizontalmente */
+    align-items: center; /* Centra el ícono verticalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle un efecto flotante */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+.float img {
+  width: 80px; /* Tamaño del ícono */
+  height: 80px; /* Tamaño del ícono */
+  margin: 0; /* Remueve cualquier margen adicional */
+  padding: 0; /* Remueve cualquier padding adicional */
+}
+
+     /* Animación de rebote */
+.whatsapp-bounce {
+    animation: bounce 2s infinite; /* Aplica la animación de rebote */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Salto hacia arriba */
+    }
+}
+
+/* Ajustes al pasar el mouse */
+.float:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}   
+
+.navbar-nav .nav-item .nav-link {
+    color: #020202; /* Color del texto negro */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: 500; /* Peso de la fuente */
+    margin: 0 15px; /* Espaciado entre elementos */
+    text-align: center; /* Centra el texto */
+    font-family: 'Poppins', sans-serif; /* Fuente más estilizada */
+    text-transform: capitalize; /* Solo la primera letra de cada palabra en mayúscula */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff; /* Cambia a blanco al pasar el mouse */
+    background-color: #000000; /* Fondo negro al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados para el efecto hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+/* banner */
+.banner {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between;
+    padding: 50px;
+    background: linear-gradient(to bottom right, #172357, #007bff);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.banner-content {
+    flex: 1;
+    padding: 18px;
+    z-index: 1;
+    display: flex; /* Flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en una columna */
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1.5s ease-out;
+}
+
+.banner-btn {
+    padding: 15px 35px; /* Espaciado interno del botón */
+    background: linear-gradient(45deg, #ff6f6f, #ff3d3d); /* Gradiente de color de fondo en tonos rojos */
+    color: white; /* Color del texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-weight: bold; /* Aplica negrita al texto */
+    border-radius: 10px; /* Esquinas ligeramente redondeadas para una forma más angular */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    transition: all 0.4s ease; /* Transiciones suaves para todos los cambios */
+    display: inline-block; /* Asegura que el botón sea un bloque en línea */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra sutil para resaltar el botón */
+    position: relative; /* Necesario para animaciones internas */
+    overflow: hidden; /* Asegura que los efectos de animación no se desborden */
+    font-family: "Poppins", system-ui;
+    font-size: 23px; /* Tamaño de la fuente */
+    border: 2px solid transparent; /* Borde para el efecto de animación */
+    animation: pulse 1.5s infinite; /* Animación de pulsación infinita */
+    align-self: center; /* Centra el botón verticalmente dentro de su contenedor */
+}
+
+.banner-btn::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto para el efecto */
+    top: 50%; /* Posiciona el pseudo-elemento en la mitad vertical del botón */
+    left: 50%; /* Posiciona el pseudo-elemento en la mitad horizontal del botón */
+    width: 300%; /* Asegura que el efecto cubra el botón */
+    height: 300%; /* Asegura que el efecto cubra el botón */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 20%, transparent 60%); /* Gradiente radial */
+    border-radius: 50%; /* Redondea el pseudo-elemento */
+    transform: scale(0); /* Comienza desde el centro sin mostrar el efecto */
+    transition: transform 0.6s ease-out; /* Transición para la animación de pulso */
+}
+
+.banner-btn:hover::before {
+    transform: scale(1); /* Expande el efecto al pasar el cursor */
+}
+
+.banner-btn:hover {
+    background: linear-gradient(45deg, #2563eb, #1e3a8a); /* Gradiente de fondo azul al pasar el cursor */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada al pasar el cursor */
+    transform: translateY(-5px); /* Eleva el botón al pasar el cursor */
+    border: 2px solid #2563eb; /* Añade un borde azul al pasar el cursor */
+    animation: none; /* Detiene la animación de pulsación al pasar el cursor */
+}
+
+.banner-btn:active {
+    background: linear-gradient(45deg, #1e3a8a, #2563eb); /* Gradiente de color aún más oscuro cuando el botón está presionado */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* Sombra más pequeña cuando el botón está presionado */
+    transform: translateY(0); /* El botón vuelve a su posición original cuando se presiona */
+}
+
+/* Animación de rebote */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.banner-image {
+    flex: 1;
+    text-align: right;
+    animation: fadeInUp 2s ease-out;
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-content {
+        margin-bottom: 20px;
+    }
+
+    .banner-image img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner-content p {
+        font-size: 1.2rem;
+    }
+
+    .banner-btn {
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*Formulario*/
+.contact-form {
+            background: linear-gradient(to bottom right, #007bff, #004085);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-form p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+        }
+
+        .input-group .error-message {
+            color: #ff4757;
+            font-size: 0.9rem;
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            display: none;
+        }
+
+        .contact-form button {
+            background: #ff4757;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: #e84345;
+            transform: translateY(-3px);
+        }
+
+        /*CARD DE VISION, MISION*/
+        .card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1;
+            transition: transform 0.3s ease;
+            max-width: calc(33.333% - 20px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+        /* Estilo del pie de página */
+        footer {
+            background-color: #99bbcf;
+            padding: 20px 0;
+            text-align: center;
+            color: #000000;
+            font-size: 14px;
+            margin-top: 144px;
+            border-top: 1px solid #ddd;
+            font-family: "Poppins", system-ui;
+        }
+
+        footer a {
+            color: #3358ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #3160c4;
+            text-decoration: underline;
+            
+        }
+        p{
+            font-family: "Montserrat", sans-serif;
+        }
+        li{
+            font-family: "Poppins", system-ui;
+        }
+
+        h1,h3,h2{
+            font-family: "Poppins", system-ui;
+        }
+
+    </style>
+    <div class="page-container">
+    <!--barra de navegacion-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="./images/LOGO CCL.png" alt="Logo" class="navbar-logo">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./soporte/mantenimiento.html">Tecnología-Soporte</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./camara/camaras.html">Instalación de Cámaras</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./marketing/marketing.html">Servicio de Marketing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./sistemas/sistema.html">Software y Sistemas</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--banner-->
+  <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" style="border-radius: 15px; overflow: hidden;">
+    <div class="carousel-inner">
+        <!-- Primera imagen con texto arriba -->
+        <div class="carousel-item active">
+           <img src="./images/portada.jfif" class="d-block w-100" alt="Imagen 1" style="border-radius: 15px; overflow: hidden;">
+        </div>
+
+        <!-- Segunda imagen con texto arriba -->
+</div>
+    <!--Card de la emrpesa-->
+    <section id="nosotros">
+        <div class="card-container container mt-4">
+            <div class="card">
+                <img src="./images/Valores.jpeg" alt="Imagen 1">
+                <div class="card-content">
+                    <p>Compromiso, Integridad, Innovación, Calidad y Responsabilidad. Estos valores guían cada aspecto de nuestro trabajo y relaciones con los clientes.</p>
+                </div>
+            </div>
+    
+            <div class="card">
+                <img src="./images/Visión.jpeg" alt="Imagen 2">
+                <div class="card-content">
+                    <p>Ser la empresa líder en el mercado de seguridad, reconocida por su excelencia en productos y servicios, y por su compromiso con la innovación y la calidad.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./images/Misión.jpeg" alt="Imagen 3">
+                <div class="card-content">
+                    <p>Nuestra misión es proporcionar soluciones innovadoras en sistemas de seguridad que brinden tranquilidad y protección a nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+        <!--Sobre nosotros-->
+        <div class="card container mt-4">
+                <div class="card-content">
+                    <h3 class="card-title" style="color: #172357;">¿Quines somos?</h3>
+                    <p>En CompuServic Tecnología Perú SAC, ofrecemos
+                        soluciones tecnológicas integrales, con el mejor 
+                        servicio de Instalación y venta de cámaras de seguridad.
+                        Nos comprometemos a brindar un servicio
+                        personalizado, eficiente y de alta calidad, asegurando
+                        que tu tecnología funcione de manera óptima. Tu
+                        satisfacción es nuestra prioridad.</p>
+                </div>
+          </div>
+    </section>
+    <!--Productos-->
+    <!--fila 1-->
+    
+        <!--formulario-->
+    </section>
+    <section id="formulario">
+        <br>
+        <h1 style="text-align: center;">Formulario</h1>
+        <div class="contact-form container mt-4">
+            <h2>Contáctanos</h2>
+            <p>Ingresa tu número de celular y te contactaremos</p>
+            <form>
+                <div class="input-group">
+                    <input type="tel" class="phone-input-field" placeholder="Número de celular" maxlength="9" required>
+                    <div class="error-message">Solo se permiten 9 dígitos.</div>
+                </div>
+                <button type="button" class="send-btn">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <br>
+    <!--ubicacion-->
+    <section id="ubicacion">
+        <div class="container" style="height: auto;">
+            <div class="section-title text-center">
+                <h1 style="text-align: center;">Ubicación</h1>
+                <br>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3881.1455494157562!2d-76.12993992491597!3d-13.403312986953145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDI0JzExLjkiUyA3NsKwMDcnMzguNSJX!5e0!3m2!1ses-419!2spe!4v1745246866071!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!--Nosotros-->
+    <section id="servicio">
+        <h1 style="text-align: center;">Servicios</h1>
+        <br>
+        <div class="card-container container mt-4">
+            <div class="card">
+                <img src="./images/instalacion.jpg" alt="Imagen 1">
+                <div class="card-content">
+                    <h3 class="card-title">Instalación Profesional</h3>
+                    <p>Instalamos y configuramos tus sistemas de seguridad para un funcionamiento óptimo.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./images/matenimiento.jpg" alt="Imagen 2">
+                <div class="card-content">
+                    <h3 class="card-title">Mantenimiento y Reparación</h3>
+                    <p>Ofrecemos servicios de mantenimiento y reparación para garantizar que tus sistemas funcionen correctamente.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./images/soporte.jpg" alt="Imagen 3">
+                <div class="card-content">
+                    <h3 class="card-title">Soporte Técnico 24/7</h3>
+                    <p>Nuestro equipo de soporte está disponible 24/7 para ayudarte con cualquier consulta o problema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--final de pie-->
+
+    <!-- WhatsApp -->
+    <a href="https://web.whatsapp.com/send?phone=51961514338&text=Me%20gustaría%20saber%20más%20de%20sus%20productos" class="float whatsapp-bounce" target="_blank">
+        <img src="./images/whatapp.png" alt="WhatsApp" class="my-float">
+    </a>
+    <footer>
+        <p>&copy; 2025 CompuServic. Todos los derechos reservados.</p>
+        <p>
+            <a href="#terminos">Términos y condiciones</a> | 
+            <a href="#privacidad">Política de privacidad</a> | 
+            <a href="#contacto">Contacto</a>
+        </p>
+    </footer>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sendButton = document.querySelector('.send-btn');
+            const phoneInput = document.querySelector('.phone-input-field');
+            const errorMessage = document.querySelector('.error-message');
+
+            sendButton.addEventListener('click', function () {
+                let phoneNumber = phoneInput.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+                
+                // Asegúrate de que el número tiene exactamente 9 dígitos
+                if (phoneNumber.length === 9) {
+                    errorMessage.style.display = 'none';
+                    
+                    // Reemplaza con el número de teléfono destino
+                    const destinationNumber = '51961514338'; // Número de teléfono de destino con el código de país
+                    const message = `Hola, me interesa más información sobre sus productos. Mi número es ${phoneNumber}.`;
+                    const whatsappURL = `https://web.whatsapp.com/send?phone=${destinationNumber}&text=${encodeURIComponent(message)}`;
+                    
+                    // Redirige a WhatsApp Web en una nueva pestaña
+                    window.open(whatsappURL, '_blank');
+                } else {
+                    errorMessage.style.display = 'block';
+                    alert('Por favor, ingresa un número de 9 dígitos válido.');
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
